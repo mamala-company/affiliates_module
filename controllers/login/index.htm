@@ -1,0 +1,51 @@
+<div class="content-wrap nopadding">
+
+    <div class="section nopadding nomargin"></div>
+
+    <div class="section nobg full-screen nopadding nomargin">
+        <div class="container vertical-middle divcenter clearfix login-oben-verschieben-2-ser">
+
+            <div class="row center">
+                <a href="<?= Url::to('/') ?>">
+                    <img class="logo-login login-ser" width="20%" src="<?= Url::asset('modules/bbf/assets/images/logo_bbf_vlarge_transp.png') ?>" alt="BabyBellyFitness - Home">
+                </a>
+            </div>
+
+            <div class="panel panel-default divcenter" style="max-width: 400px; border: solid; border-color: #AE9A64">
+                <div class="panel-body" style="padding: 40px;">
+                    <form id="login-form" name="login-form" class="nobottommargin"
+                          data-request="onLogin"
+                          data-request-data="">
+                        <h3 style="color: #AE9A64; text-align: center">Anmeldung</h3>
+
+                        <div class="col_full">
+                            <label for="userSigninLogin">E-mail:</label>
+                            <input type="email" id="userSigninLogin" name="email" value="" class="form-control not-dark" />
+                        </div>
+
+                        <div class="col_full">
+                            <label for="userSigninPassword">Passwort:</label>
+                            <input type="password" id="userSigninPassword" name="password" value="" class="form-control not-dark" />
+                        </div>
+
+                        <div class="col_full" id="errormsg" style="color:#ff0000;display:none;">Ungültige Anmeldedaten</div>
+
+                        <div class="col_full nobottommargin">
+                            <button class="button button-rounded button-reveal button-large tright"
+                                    style="background-color: #AE9A64;" id="login-form-submit">
+                                <i class="icon-line2-login"></i>
+                                <span>Anmelden</span>
+                            </button>
+                            <a href="<?= Bbf::url('login/forgot-password') ?>" class="fright anmelde-link ipad-login" style="color: #AE9A64;">Passwort vergessen?</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="row center dark"><small>Copyright &copy; BabyBellyFitness. Alle Rechte vorbehalten.</small></div>
+
+        </div>
+    </div>
+
+</div>

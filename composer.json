@@ -1,0 +1,21 @@
+{
+    "name": "hebab/affiliates",
+    "type": "october-module",
+    "authors": [
+        {
+            "name": "Manuel Ketterer",
+            "email": "manuel.ketterer@hebab-company.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0",
+        "hebab/bbf": "dev-master"
+    },
+	"autoload": {
+        "psr-4": {
+            "Affiliates\\": ""
+        }
+    }
+}

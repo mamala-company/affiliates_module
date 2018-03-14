@@ -1,0 +1,58 @@
+<div class="content-wrap nopadding">
+
+    <div class="section nopadding nomargin" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #333333;"></div>
+
+    <div class="section nobg full-screen nopadding nomargin">
+        <div class="container vertical-middle divcenter clearfix">
+
+            <div class="row center" >
+                <a href="<?= Url::to('/') ?>">
+                    <img class="logo-login lm-login-logo lm-login-ipad" width="10%" src="<?= Url::asset('modules/bbf/assets/images/logo_bbf_vlarge_transp.png') ?>" alt="BabyBellyFitness - Home">
+                </a>
+            </div>
+
+            <div class="panel panel-default divcenter" style="max-width: 400px; border: solid; border-color: #AE9A64;">
+                <div class="panel-body" style="padding: 40px;">
+                    <?php if ($this->hasCode): ?>
+                        <form data-request="onResetPassword">
+
+                            <div class="form-group">
+                                <label for="resetPassword">Neues Passwort</label>
+                                <input name="password" type="password" class="form-control" id="resetPassword" placeholder="Gib dein neues Passwort ein">
+                            </div>
+
+                            <button type="submit" style="background-color: #FF004B; color: white; border-radius: 5px"
+                                    class="button button-3d-ser passwort-vergessen-s passwort-vergessen-ser" data-class-lg="button-large" data-class-md="button-normal" data-class-sm="button-normal" data-class-xs="button-normal" data-class-xxs="button-small">
+                                Passwort zurücksetzen
+                            </button>
+                        </form>
+
+                    <?php else: ?>
+
+                        <p class="lead">
+                            <strong>Passwort vergessen?</strong><br/>
+                            Kein Problem! <br/>
+                            <small>Gib hier Deine E-Mail Adresse ein und wir senden dir eine Email mit der du dein Passwort zurücksetzen kannst.</small>
+                        </p>
+
+                        <form data-request="onRestorePassword">
+                            <div class="form-group">
+                                <label for="userRestoreEmail">Email</label>
+                                <input name="email" type="email" class="form-control" id="userRestoreEmail" placeholder="Email eingeben">
+                            </div>
+
+                            <button type="submit" style="background-color: #FF004B; color: white; border-radius: 5px"
+                               class="button button-3d-ser passwort-vergessen-s passwort-vergessen-ser" data-class-lg="button-large" data-class-md="button-normal" data-class-sm="button-normal" data-class-xs="button-normal" data-class-xxs="button-small">
+                                Passwort zurücksetzen
+                            </button>
+                        </form>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div class="row center dark"><small>Copyright &copy; BabyBellyFitness. Alle Rechte vorbehalten.</small></div>
+
+        </div>
+    </div>
+
+</div>

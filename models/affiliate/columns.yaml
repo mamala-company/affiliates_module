@@ -1,0 +1,21 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    id:
+        label: affiliate_id
+        invisible: true
+
+    username:
+        label: username
+        searchable: true
+
+    email:
+        label: email
+        searchable: true
+
+    credit:
+        label: credit
+        type: number

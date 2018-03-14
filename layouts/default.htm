@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="<?= App::getLocale() ?>">
+    <head>
+
+        <?= $this->makeLayoutPartial('head') ?>
+        <link href="<?= Url::asset('modules/bbf/assets/css/affiliates.css') ?>" rel="stylesheet">
+
+    </head>
+
+    <body class="stretched no-transition">
+
+        <div id="wrapper" class="clearfix">
+
+            <?= $this->makeLayoutPartial('affiliates_header') ?>
+
+            <section id="content">
+                <div class="content-wrap">
+                    <?= Block::placeholder('body') ?>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Flash Messages -->
+        <div id="layout-flash-messages"><?= $this->makeLayoutPartial('flash_messages') ?></div>
+
+        <?= $this->makeLayoutPartial('scripts') ?>
+
+    </body>
+</html>

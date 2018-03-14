@@ -1,0 +1,37 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+    username:
+        label: Username
+        span: left
+
+    email:
+        label: Email
+        span: right
+
+    password@create:
+        label: bbf::lang.user.create_password
+        comment: bbf::lang.user.create_password_comment
+        type: password
+        span: left
+
+    password@update:
+        label: bbf::lang.user.reset_password
+        comment: bbf::lang.user.reset_password_comment
+        type: password
+        span: left
+
+    password_confirmation:
+        label: bbf::lang.user.confirm_password
+        comment: bbf::lang.user.confirm_password_comment
+        type: password
+        span: right
+        context: [create, update]
+
+    credit:
+        label: Credit
+        type: number
+        span: left
+        default: 0
