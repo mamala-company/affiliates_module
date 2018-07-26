@@ -27,4 +27,9 @@ class Coupons extends BaseController
         parent::__construct();
     }
 
+    public function listExtendQuery($query)
+    {
+        $query->where('affiliate_id', $this->user->id);
+    }
+
 }
