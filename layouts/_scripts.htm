@@ -1,0 +1,66 @@
+<?php
+    $coreBuild = System\Models\Parameter::get('system::core.build', 1);
+?>
+<script src="<?= Url::asset('modules/bbf/assets/js/plugins.js') ?>?v<?= $coreBuild ?>"></script>
+<script src="<?= Url::asset('modules/bbf/assets/js/functions.js') ?>?v<?= $coreBuild ?>"></script>
+<script src="<?= Url::asset('modules/system/assets/js/framework.js') ?>?v<?= $coreBuild ?>"></script>
+<script src="<?= Url::asset('modules/system/assets/js/framework.extras.js') ?>?v<?= $coreBuild ?>"></script>
+<?= $this->makeAssets('js') ?>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.css"/>
+
+<?= Block::placeholder('scripts') ?>
+
+<script type="text/javascript">
+    ;(function($) {
+        'use strict';
+
+        swal.setDefaults({
+            allowEscapeKey: true,
+            reverseButtons: true
+        });
+
+        $(window).on('ajaxErrorMessage', function (evt, message) {
+            evt.preventDefault();
+
+            // give swal enough time to finish animating the overlay with multiple consecutive modals
+            setTimeout(function() {
+                swal({
+                    text: message,
+                    buttonsStyling: false,
+                    confirmButtonClass: 'button is-primary is-medium',
+                    showCancelButton: false,
+                    reverseButtons: true,
+                    allowEscapeKey: true
+                }).then(function() {
+                    swal.resetDefaults();
+                });
+            }, 150);
+        }).on('ajaxConfirmMessage', function (evt, message) {
+            evt.preventDefault();
+
+            swal({
+                text: message,
+                dangerMode: true,
+                buttonsStyling: false,
+                confirmButtonText: 'Ja',
+                confirmButtonClass: 'button button-3d button-large button-rounded button-red',
+                cancelButtonText: 'Abbrechen',
+                cancelButtonClass: 'button button-3d button-large button-rounded button-green',
+                showCancelButton: true,
+                reverseButtons: true,
+                allowEscapeKey: true
+            }).then(function() {
+                swal.resetDefaults();
+                evt.promise.resolve(message);
+            }, function(dismiss) {
+                swal.resetDefaults();
+                evt.promise.reject();
+            });
+
+            return true;
+        });
+
+    }(jQuery));
+</script>

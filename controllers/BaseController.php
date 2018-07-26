@@ -16,7 +16,7 @@ use Session;
 use Redirect;
 use Response;
 use Exception;
-use Bbf\Classes\Controller;
+use Affiliates\Classes\Controller;
 use Backend\Models\UserPreference;
 use Backend\Models\Preference as BackendPreference;
 use Backend\Widgets\MediaManager;
@@ -560,7 +560,7 @@ abstract class BaseController extends Extendable
 
     public function onLogout()
     {
-        AffiliateAuth::logout();
+        Auth::logout();
 
         if($this->user) {
             Event::fire('bbf::user.logout', [$this->user]);

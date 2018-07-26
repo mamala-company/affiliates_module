@@ -21,8 +21,8 @@ class AuthManager extends RainAuthManager
     /**
      * {@inheritDoc}
      */
-    public function register(array $credentials, $activate = false)
+    public function register(array $credentials, $activate = false, $autoLogin = true)
     {
-        return parent::register($credentials, $activate);
+        return parent::register($credentials, $activate, $autoLogin);
     }
 }

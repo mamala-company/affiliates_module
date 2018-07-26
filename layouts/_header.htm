@@ -20,11 +20,13 @@
 
                 <ul class="sf-js-enabled noborder">
 
+                    <?php if($this->user): ?>
                     <li class="current">
-                        <a href="#" data-request="onLogout">
+                        <a href="javascript:void(0);" data-request="onLogout">
                             <div>Abmelden <i class="icon-line-arrow-right"></i></div>
                         </a>
                     </li>
+                    <?php endif; ?>
 
                 </ul>
 

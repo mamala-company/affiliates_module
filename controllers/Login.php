@@ -39,7 +39,7 @@ class Login extends BaseController
     {
         if(Auth::check())
         {
-            return Helper::redirect('stats');
+            return Helper::redirect('coupons');
         }
     }
 
@@ -72,7 +72,7 @@ class Login extends BaseController
 
             Auth::authenticate($credentials, true);
 
-            return Helper::redirect('stats');
+            return Helper::redirect('coupons');
         }
         catch (Exception $ex) {
             if (Request::ajax()) throw $ex;

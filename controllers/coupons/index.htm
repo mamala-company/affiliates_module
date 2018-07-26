@@ -1,5 +1,7 @@
 <div class="container clearfix">
 
+    <h1>Guthaben: <?= money_format('%.2n €', $this->user->credit) ?></h1>
+
     <?= $this->listRender() ?>
 
 </div>
