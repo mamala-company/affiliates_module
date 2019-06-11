@@ -1,7 +1,38 @@
 <div class="container clearfix">
 
-    <h1>Guthaben: <?= money_format('%.2n €', ($this->user->credit / 100)) ?></h1>
+    <?php $month = Carbon::now(); ?>
 
+    <h2>Deine Rabattcodes</h2>
     <?= $this->listRender() ?>
 
+    <h2>Umsätze diesen Monat</h2>
+    <?php $items = $this->getBillItems($this->user, $month->year, $month->month) ?>
+    <?php $total = 0; ?>
+    <ul>
+        <?php foreach($items as $item): ?>
+            <li>
+                <?= $item['date']->format('d.m.Y').' - Bestellnummer '.$item['order']->id.' - Gutschrift: '.Bbf::money($item['credit']) ?>
+            </li>
+            <?php $total += $item['credit'] ?>
+        <?php endforeach; ?>
+
+        <?php if(count($items) === 0): ?>
+            <span>Du hast diesen Monat noch keine Umsätze :(</span>
+        <?php endif; ?>
+    </ul>
+
+    <strong>Gesamt: <?= Bbf::money($total) ?></strong>
+
+    <hr>
+
+    <h2>Deine Abrechnungen</h2>
+    <ul>
+        <?php for($i = 0; $i < 6; $i++): ?>
+        <?php $month->subMonth() ?>
+        <li>
+            <a role="menuitem" tabindex="-1" href="<?= '/affiliates/coupons/bill'.$month->format('/Y/n') ?>"
+               class=""><?= $month->formatLocalized('%m - %Y') ?></a>
+        </li>
+        <?php endfor; ?>
+    </ul>
 </div>
