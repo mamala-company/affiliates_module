@@ -3,7 +3,8 @@
     <?php $month = Carbon::now(); ?>
 
     <h2>Deine Rabattcodes</h2>
-    <?= $this->listRender() ?>
+    <p>Aufgrund technischer Schwierigkeiten können wir Deine Rabattcodes derzeit nicht abrufen</p>
+
 
     <h2>Umsätze diesen Monat</h2>
     <?php $items = $this->getBillItems($this->user, $month->year, $month->month) ?>
