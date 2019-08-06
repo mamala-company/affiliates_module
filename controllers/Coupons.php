@@ -4,6 +4,7 @@ use Affiliates\Models\Affiliate;
 use Barryvdh\DomPDF\PDF as PDFObject;
 use Carbon\Carbon;
 use PDF;
+use Lang;
 use Flash;
 
 class Coupons extends BaseController
@@ -12,7 +13,7 @@ class Coupons extends BaseController
      * @var array Extensions implemented by this controller.
      */
     public $implement = [
-        \Backend\Behaviors\ListController::class
+        //\Backend\Behaviors\ListController::class
     ];
 
     public $layout = 'default';
@@ -33,10 +34,23 @@ class Coupons extends BaseController
         parent::__construct();
     }
 
-    public function listExtendQuery($query)
+    /**
+     * Index Controller action.
+     * @return void
+     */
+    public function index()
+    {
+        $this->pageTitle = $this->pageTitle ?: Lang::get($this->getConfig(
+            'title',
+            'backend::lang.list.default_title'
+        ));
+        $this->bodyClass = 'slim-container';
+    }
+
+    /*public function listExtendQuery($query)
     {
         $query->where('affiliate_id', $this->user->id);
-    }
+    }*/
 
     /**
      * @param Affiliate $affiliate
