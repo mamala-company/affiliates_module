@@ -47,6 +47,11 @@ class Coupons extends BaseController
         $this->bodyClass = 'slim-container';
     }
 
+    public function getCoupons(Affiliate $affiliate)
+    {
+        return $affiliate->coupons;
+    }
+
     /*public function listExtendQuery($query)
     {
         $query->where('affiliate_id', $this->user->id);
@@ -68,9 +73,14 @@ class Coupons extends BaseController
             $orders = $coupon->orders()->whereHas('subscription')->whereBetween('created_at', [$monthStart, $monthEnd])->get();
 
             foreach($orders as $order) {
-                $price = $coupon->is_direct_percent
-                    ? intval($order->subscription_plan->direct_fee * (100 - $coupon->direct_amount) / 100)
-                    : $order->subscription_plan->direct_fee - $coupon->direct_amount;
+
+                if($year >= 2019 && $month >= 9) {
+                    $price = $order->subscription_plan->direct_fee;
+                } else {
+                    $price = $coupon->is_direct_percent
+                        ? intval($order->subscription_plan->direct_fee * (100 - $coupon->direct_amount) / 100)
+                        : $order->subscription_plan->direct_fee - $coupon->direct_amount;
+                }
 
                 $item = [
                     'order' => $order,

@@ -3,7 +3,18 @@
     <?php $month = Carbon::now(); ?>
 
     <h2>Deine Rabattcodes</h2>
-    <p>Aufgrund technischer Schwierigkeiten können wir Deine Rabattcodes derzeit leider nicht anzeigen</p>
+    <?php $coupons = $this->getCoupons($this->user) ?>
+    <ul>
+        <?php foreach($coupons as $coupon): ?>
+        <li>
+            <?= 'Code: ' . $coupon['code'] . ' - Provision: 10% - Verwendet insgesamt: '. $coupon['uses'] .' mal' ?>
+        </li>
+        <?php endforeach; ?>
+
+        <?php if(count($coupons) === 0): ?>
+        <span>Keine Rabattcodes hinterlegt</span>
+        <?php endif; ?>
+    </ul>
 
 
     <h2>Umsätze diesen Monat</h2>
